@@ -44,7 +44,8 @@ async function checkWeather(city){
 
 	document.querySelector(".weather").style.display="block";
 	document.querySelector(".error").style.display="none";
-	card.style.backgroundImage = "url('images/milkyway.jpg')";
+	// card.style.backgroundImage = "url('images/milkyway.jpg')";
+	card.style.backgroundColor="rgba(99, 190, 242, 0.5)";
 	
 	}
 
@@ -54,4 +55,9 @@ async function checkWeather(city){
 searchBtnEL.addEventListener("click",()=>{
 	checkWeather(searchBoxEL.value);
 })
-
+searchBoxEL.addEventListener("keydown", (event) => {
+	if (event.key === "Enter") {
+	  event.preventDefault(); // Prevent form submission
+	  checkWeather(searchBoxEL.value);
+	}
+  });
